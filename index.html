@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Notebook</title>
+    <title>Exercise Page</title>
 </head>
 <body>
-    <h1>Hello world!</h1>
+    <h1 id="main-heading">Hello world</h1>
+
+    <button id="my-button">Click me!</button>
+
+    <ul id="my-list">
+        <!-- Existing list items, if any, will be here -->
+    </ul>
+
+    <textarea id="custom-text"></textarea>
+    <button id="add-data">Add Text to List</button>
+
+    <script>
+        // Task 2: Button click event to print "hello world" to console
+        document.getElementById("my-button").addEventListener("click", function() {
+            console.log("Hello world");
+            
+            // Task 3: Change the text inside the <h1> tag
+            document.getElementById("main-heading").textContent = "Moi maailma";
+        });
+
+        // Task 4: Add an <li> element to the <ul> tag
+        document.getElementById("add-data").addEventListener("click", function() {
+            const ul = document.getElementById("my-list");
+            const li = document.createElement("li");
+            li.textContent = "Text of your choice"; // You can change this text
+            ul.appendChild(li);
+        });
+
+        // Task 5: Add custom text from textarea to the list
+        document.getElementById("add-data").addEventListener("click", function() {
+            const ul = document.getElementById("my-list");
+            const li = document.createElement("li");
+            const textareaText = document.getElementById("custom-text").value;
+            li.textContent = textareaText;
+            ul.appendChild(li);
+        });
+    </script>
 </body>
 </html>
-<button id="my-button">Click me</button>
-<script>
-    document.getElementById("my-button").addEventListener("click", function() {
-        console.log("hello world");
-    });
-</script>
-<script>
-    document.getElementById("my-button").addEventListener("click", function() {
-        console.log("hello world");
-        document.querySelector("h1").textContent = "Moi maailma";
-    });
-</script>
-<ul id="my-list">
-    <!-- List items will be added here -->
-</ul>
-<button id="add-data">Add List Item</button>
-<textarea id="my-textarea" placeholder="Enter text here"></textarea>
-<button id="add-data">Add List Item</button>
-<script>
-    document.getElementById("add-data").addEventListener("click", function() {
-        const text = document.getElementById("my-textarea").value;
-        if (text.trim() !== "") {
-            const listItem = document.createElement("li");
-            listItem.textContent = text;
-            document.getElementById("my-list").appendChild(listItem);
-        }
-    });
-</script>
