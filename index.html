@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Notebook</title>
+</head>
+<body>
+    <h1>Hello world!</h1>
+</body>
+</html>
+<button id="my-button">Click me</button>
+<script>
+    document.getElementById("my-button").addEventListener("click", function() {
+        console.log("hello world");
+    });
+</script>
+<script>
+    document.getElementById("my-button").addEventListener("click", function() {
+        console.log("hello world");
+        document.querySelector("h1").textContent = "Moi maailma";
+    });
+</script>
+<ul id="my-list">
+    <!-- List items will be added here -->
+</ul>
+<button id="add-data">Add List Item</button>
+<textarea id="my-textarea" placeholder="Enter text here"></textarea>
+<button id="add-data">Add List Item</button>
+<script>
+    document.getElementById("add-data").addEventListener("click", function() {
+        const text = document.getElementById("my-textarea").value;
+        if (text.trim() !== "") {
+            const listItem = document.createElement("li");
+            listItem.textContent = text;
+            document.getElementById("my-list").appendChild(listItem);
+        }
+    });
+</script>
